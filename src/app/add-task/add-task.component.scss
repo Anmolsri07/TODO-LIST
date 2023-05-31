@@ -16,7 +16,7 @@ section {
   & input {
     padding: 18px;
     width: 650px;
-    margin-left: 50px;
+    margin-left: 55px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border: none;
   }
@@ -41,11 +41,18 @@ input:focus {
   background-color: #228be6;
   color: #fff;
 }
+
 .btn-submit {
   position: relative;
-  left: 81%;
+  left: 82%;
   top: -46px;
 }
+
+.btn:hover,
+.btn:visited {
+  background-color: #1971c2;
+}
+
 .container {
   height: 500px;
   width: 800px;
