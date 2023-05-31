@@ -72,6 +72,21 @@ section {
       justify-content: space-around;
     }
 
+    & .input_task {
+      width: 250px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 2px solid #228be6;
+      padding: 12px 10px;
+      color: #868e96;
+      outline: none;
+
+      &:focus {
+        border: 2px solid yellowgreen;
+        // outline: 2px solid yellowgreen;
+      }
+    }
+
     & .task-name {
       font-size: 28px;
       color: #868e96;

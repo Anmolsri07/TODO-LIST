@@ -12,10 +12,13 @@
     <div class="show-task">
       <ul>
         <li>
-          <div class="task-name">This is custom task</div>
+          <input type="text" class="input_task" *ngIf="isEdit" name="task" placeholder="Update Task" />
+
+          <div class="task-name" *ngIf="!isEdit">This is custom task</div>
           <div class="task-control-button">
-            <button class="btn btn-dlt" type="submit">Delete</button>
-            <button class="btn btn-edit" type="submit">Edit</button>
+            <button class="btn btn-dlt" *ngIf="!isEdit" type="submit">Delete</button>
+            <button class="btn btn-edit" *ngIf="isEdit" type="submit">Update</button>
+            <button class="btn btn-edit" *ngIf="!isEdit" (click)="edit()">Edit</button>
           </div>
         </li>
       </ul>
