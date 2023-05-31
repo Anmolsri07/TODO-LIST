@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent {
+  public isEdit: boolean = false;
+  constructor() { }
+
+  edit() {
+    console.log("click" + this.isEdit);
+    return this.isEdit = !this.isEdit;
+  }
+
 
 }
