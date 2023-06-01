@@ -32,8 +32,8 @@ input:focus {
   outline: 1px solid #a5d8ff;
 }
 .btn {
-  width: 80px;
-  height: 40px;
+  padding: 12px 10px;
+
   font-size: 18px;
   font-weight: 500;
   border-radius: 5px;
@@ -44,8 +44,8 @@ input:focus {
 
 .btn-submit {
   position: relative;
-  left: 82%;
-  top: -46px;
+  left: 80%;
+  top: -48px;
 }
 
 .btn:hover,
@@ -68,10 +68,36 @@ li {
   font-family: sans-serif;
   font-weight: 500;
   color: #868e96;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .task-name {
   margin-bottom: 5px;
 }
 .btn-dlt {
+  &:hover {
+    background-color: #c92a2a;
+  }
   margin-right: 6px;
+  background-color: #e03131;
+}
+.btn-upt {
+  &:hover {
+    background-color: #2f9e44;
+  }
+  background-color: #2b8a3e;
+}
+.task-input {
+  &:focus {
+    border: 1px solid #a5d8ff;
+  }
+  padding: 12px 10px;
+  width: 250px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.add-task input.ng-invalid.ng-touched {
+  border: red 1px solid;
 }

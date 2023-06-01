@@ -4,19 +4,60 @@
       <h1>My Todo-s</h1>
     </div>
     <div class="add-task">
-      <form>
-        <input type="text" placeholder="Enter your task" name="task" />
-        <button type="submit" class="btn btn-submit">Submit</button>
+      <form [formGroup]="task" (ngSubmit)="new_task_submit()">
+        <input
+          type="text"
+          placeholder="Enter your task"
+          name="task"
+          formControlName="new_task"
+        />
+        <span *ngIf="user && !user.valid && user.touched"></span>
+
+        <button type="submit" class="btn btn-submit" [disabled]="!task.valid">
+          Add Task
+        </button>
       </form>
     </div>
     <div class="show-task">
       <ul>
         <li>
-          <div class="task-name">This is custom task</div>
-          <div class="task-control-button">
-            <button class="btn btn-dlt" type="submit">Delete</button>
-            <button class="btn btn-add" type="submit">Add</button>
-          </div>
+          <form [formGroup]="update_task" (ngSubmit)="submit_update()">
+            <div *ngIf="!isEdit" class="task-name">This is custom task</div>
+
+            <input
+              class="task-input"
+              *ngIf="isEdit"
+              type="text"
+              placeholder="update Your Task"
+              formControlName="input_update"
+            />
+            <div class="task-control-button">
+              <button
+                *ngIf="isEdit"
+                (click)="edit()"
+                class="btn btn-dlt"
+                type="button"
+              >
+                Cancel
+              </button>
+
+              <button *ngIf="!isEdit" class="btn btn-dlt" type="button">
+                Delete
+              </button>
+              <button
+                (click)="edit()"
+                *ngIf="!isEdit"
+                class="btn btn-upt"
+                type="button"
+              >
+                Edit
+              </button>
+
+              <button *ngIf="isEdit" class="btn btn-upt" type="submit">
+                Update
+              </button>
+            </div>
+          </form>
         </li>
       </ul>
     </div>
