@@ -4,7 +4,7 @@
       <h1>My Todo-s</h1>
     </div>
     <div class="add-task">
-      <form [formGroup]="task" (ngSubmit)="new_task_submit()">
+      <form [formGroup]="task" (ngSubmit)="new_task_submit(task.value)">
         <input
           type="text"
           placeholder="Enter your task"
@@ -20,9 +20,9 @@
     </div>
     <div class="show-task">
       <ul>
-        <li>
-          <form [formGroup]="update_task" (ngSubmit)="submit_update()">
-            <div *ngIf="!isEdit" class="task-name">This is custom task</div>
+        <li *ngFor="let item of show">
+          <form [formGroup]="update_task" (ngSubmit)="submit_update(item.id)">
+            <div *ngIf="!isEdit" class="task-name">{{ item.new_task }}</div>
 
             <input
               class="task-input"
@@ -41,7 +41,12 @@
                 Cancel
               </button>
 
-              <button *ngIf="!isEdit" class="btn btn-dlt" type="button">
+              <button
+                *ngIf="!isEdit"
+                class="btn btn-dlt"
+                type="button"
+                (click)="delete(item.id)"
+              >
                 Delete
               </button>
               <button
