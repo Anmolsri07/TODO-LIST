@@ -10,15 +10,16 @@ import { CrudService } from '../service/crud.service';
 })
 export class AddTaskComponent {
   show: any;
-  activebuttonId = null;
 
   constructor(private crudService: CrudService) {
     this.allTaskget();
   }
 
   isEdit = false;
-  edit() {
-    return (this.isEdit = !this.isEdit);
+  isOpenid: number = 0;
+  edit(id: any) {
+    this.isOpenid = id;
+    this.isEdit = !this.isEdit;
   }
 
   task = new FormGroup({
@@ -31,6 +32,7 @@ export class AddTaskComponent {
     });
     this.allTaskget();
     this.task.reset();
+    window.location.reload();
   }
 
   update_task = new FormGroup({
@@ -49,6 +51,7 @@ export class AddTaskComponent {
         console.log(result);
       });
     this.update_task.reset();
+    window.location.reload();
   }
 
   allTaskget() {

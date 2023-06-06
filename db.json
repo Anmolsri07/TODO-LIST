@@ -1,16 +1,3 @@
 {
-  "task": [
-    {
-      "new_task": "sleep",
-      "id": 1
-    },
-    {
-      "new_task": "aptitude",
-      "id": 2
-    },
-    {
-      "new_task": "aptitude",
-      "id": 3
-    }
-  ]
+  "task": []
 }

@@ -22,19 +22,21 @@
       <ul>
         <li *ngFor="let item of show">
           <form [formGroup]="update_task" (ngSubmit)="submit_update(item.id)">
-            <div *ngIf="!isEdit" class="task-name">{{ item.new_task }}</div>
+            <div *ngIf="!(isEdit && item.id === isOpenid)" class="task-name">
+              {{ item.new_task }}
+            </div>
 
             <input
               class="task-input"
-              *ngIf="isEdit"
+              *ngIf="isEdit && item.id === isOpenid"
               type="text"
               placeholder="update Your Task"
               formControlName="input_update"
             />
             <div class="task-control-button">
               <button
-                *ngIf="isEdit"
-                (click)="edit()"
+                *ngIf="isEdit && item.id === isOpenid"
+                (click)="edit(item.id)"
                 class="btn btn-dlt"
                 type="button"
               >
@@ -42,7 +44,7 @@
               </button>
 
               <button
-                *ngIf="!isEdit"
+                *ngIf="!(isEdit && item.id === isOpenid)"
                 class="btn btn-dlt"
                 type="button"
                 (click)="delete(item.id)"
@@ -50,15 +52,19 @@
                 Delete
               </button>
               <button
-                (click)="edit()"
-                *ngIf="!isEdit"
+                (click)="edit(item.id)"
+                *ngIf="!(isEdit && item.id === isOpenid)"
                 class="btn btn-upt"
                 type="button"
               >
                 Edit
               </button>
 
-              <button *ngIf="isEdit" class="btn btn-upt" type="submit">
+              <button
+                *ngIf="isEdit && item.id === isOpenid"
+                class="btn btn-upt"
+                type="submit"
+              >
                 Update
               </button>
             </div>
