@@ -18,59 +18,26 @@
         </button>
       </form>
     </div>
-    <div class="show-task">
-      <ul>
-        <li *ngFor="let item of show">
-          <form [formGroup]="update_task" (ngSubmit)="submit_update(item.id)">
-            <div *ngIf="!(isEdit && item.id === isOpenid)" class="task-name">
-              {{ item.new_task }}
-            </div>
 
-            <input
-              class="task-input"
-              *ngIf="isEdit && item.id === isOpenid"
-              type="text"
-              placeholder="update Your Task"
-              formControlName="input_update"
-            />
-            <div class="task-control-button">
-              <button
-                *ngIf="isEdit && item.id === isOpenid"
-                (click)="edit(item.id)"
-                class="btn btn-dlt"
-                type="button"
-              >
-                Cancel
-              </button>
+    <table class="table">
+      <tr class="table-head">
+        <th>S.No</th>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Summary</th>
+        <th></th>
+      </tr>
 
-              <button
-                *ngIf="!(isEdit && item.id === isOpenid)"
-                class="btn btn-dlt"
-                type="button"
-                (click)="delete(item.id)"
-              >
-                Delete
-              </button>
-              <button
-                (click)="edit(item.id)"
-                *ngIf="!(isEdit && item.id === isOpenid)"
-                class="btn btn-upt"
-                type="button"
-              >
-                Edit
-              </button>
-
-              <button
-                *ngIf="isEdit && item.id === isOpenid"
-                class="btn btn-upt"
-                type="submit"
-              >
-                Update
-              </button>
-            </div>
-          </form>
-        </li>
-      </ul>
-    </div>
+      <tr>
+        <td>1</td>
+        <td>coding</td>
+        <td>Description</td>
+        <td>Summary</td>
+        <td>
+          <button class="btn btn-dlt">Delete</button>
+          <button class="btn btn-upt">Edit</button>
+        </td>
+      </tr>
+    </table>
   </div>
 </section>
